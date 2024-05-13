@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Räder
+AbstrakteKomponente <|-- Karosserie
+Karosserie <|-- Limousine
+Karosserie <|-- Cabrio
+AbstraktesProdukt <|-- SUV
+AbstraktesProdukt <|-- Kompaktwagen
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Leasen
+Dienstleistung <|-- Warten
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Wartungstechniker
+Rolle <|-- Automechaniker 
+@enduml
+In einem Autohaus werden verschiedene Autotypen angeboten, darunter SUVs und Kompaktwagen. Ein Auto besteht aus Komponenten wie Motor, Räder und Karosserie. Die Karosserie kann entweder eine Limousine oder ein Cabrio sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, das Leasing und die Wartung von Autos. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Wartungstechniker oder Automechaniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Autos anhand der Produktart suchen und sortieren. Der Kunde hat die Möglichkeit, Autos zu kaufen oder zu leasen. Zudem kann der Kunde die Wartung seines Autos beauftragen, um es in einem einwandfreien Zustand zu halten. Für die Wartung stehen speziell ausgebildete Wartungstechniker und Automechaniker zur Verfügung, die sich um die Instandhaltung und Reparatur der Fahrzeuge kümmern. Produkte und Personendaten müssen angelegt und verwaltet werden können.

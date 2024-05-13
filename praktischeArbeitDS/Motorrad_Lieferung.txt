@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Bremse
+Bremse<|-- Scheibenbremse
+Bremse <|-- Trommelbremse
+AbstraktesProdukt <|-- Cruiser
+AbstraktesProdukt <|-- Sportmotorrad
+AbstraktesProdukt "1..*"--"*" Lieferung
+Rechnung "0..1"--"1" Lieferung
+Lieferung <|-- Bestellen
+Lieferung <|-- Versenden
+Lieferung <|-- Ausliefern
+Lieferung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Lieferant
+Rolle <|-- Auslieferer 
+@enduml
+In einem Motorradgeschäft werden verschiedene Motorradmodelle angeboten, darunter Cruiser und Sportmotorräder. Ein Motorrad besteht aus Komponenten wie Motor, Reifen und Bremse. Die Bremse kann entweder eine Scheiben- oder Trommelbremse sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Lieferungen umfassen das Bestellen, Versenden und Ausliefern von Motorrädern. Zu einer Lieferung gehört keine oder eine Rechnung. Für eine Lieferung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Lieferant oder Auslieferer, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Motorräder anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Motorrädern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, ein Motorrad zu bestellen. Für die Auslieferung der Motorräder stehen spezialisierte Auslieferer zur Verfügung, die sich um die Lieferung und Übergabe an den Kunden kümmern. Produkte und Personendaten müssen angelegt und verwaltet werden können.

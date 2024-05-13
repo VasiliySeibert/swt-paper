@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Kühlschranktür
+AbstrakteKomponente <|-- Kühlraum
+AbstrakteKomponente <|-- Temperaturregelung
+Temperaturregelung<|-- MechanischeRegelung
+Temperaturregelung <|-- ElektronischeRegelung
+AbstraktesProdukt <|-- Standkühlschrank
+AbstraktesProdukt <|-- Side-by-Side-Kühlschrank
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Liefern
+Dienstleistung "1" -- "*" Lieferung
+Rolle "1" -- "*" Lieferung
+Lieferung : lieferungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Lieferant
+Rolle <|-- Lieferungsfahrer 
+@enduml
+In einem Haushaltsgerätegeschäft werden verschiedene Kühlschränke angeboten, darunter Stand- und Side-by-Side-Kühlschränke. Ein Kühlschrank besteht aus Komponenten wie Kühlschranktür, Kühlraum und Temperaturregelung. Die Temperaturregelung kann entweder eine mechanische oder elektronische Regelung sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und die Lieferung von Kühlschränken. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Lieferungen geben, die jeweils eine eindeutige Lieferungsnummer haben. Jede Person, ob Kunde, Lieferant oder Lieferungsfahrer, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Kühlschränke anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Kühlschränken suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Kühlschränke zu kaufen oder zu mieten. Für den Kauf eines Kühlschranks kann der Kunde eine Lieferung beauftragen. Dabei steht ein Lieferant bereit, der den gekauften Kühlschrank zum Kunden liefert. Falls erforderlich, kann auch ein spezialisierter Lieferungsfahrer eingesetzt werden, um die Zustellung zu gewährleisten. Produkte und Personendaten müssen angelegt und verwaltet werden können.

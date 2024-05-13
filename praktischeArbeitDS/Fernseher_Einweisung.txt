@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Bildschirm
+AbstrakteKomponente <|-- Lautsprecher
+AbstrakteKomponente <|-- Fernbedienung
+Lautsprecher<|-- SurroundSound
+Lautsprecher <|-- MonoSound
+AbstraktesProdukt <|-- SmartTV
+AbstraktesProdukt <|-- 4KTV
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Einweisen
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Einweiser
+Rolle <|-- TV-Techniker 
+@enduml
+In einem Elektronikgeschäft werden verschiedene Fernseher angeboten, darunter Smart TVs und 4K TVs. Ein Fernseher besteht aus Komponenten wie Bildschirm, Lautsprecher und Fernbedienung. Die Lautsprecher können entweder SurroundSound oder MonoSound sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und das Einweisen in die Bedienung von Fernsehern. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Einweiser oder TV-Techniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Fernseher anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Fernsehern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, einen Fernseher zu kaufen oder zu mieten. Für den gekauften Fernseher kann der Kunde eine Einweisung in die Bedienung erhalten, um das Gerät optimal nutzen zu können. Bei technischen Problemen kann ein TV-Techniker hinzugezogen werden, um den Fernseher zu reparieren. Produkte und Personendaten müssen angelegt und verwaltet werden können.

@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Räder
+AbstrakteKomponente <|-- Karosserie
+Karosserie <|-- Limousine
+Karosserie <|-- Cabrio
+AbstraktesProdukt <|-- SUV
+AbstraktesProdukt <|-- Kompaktwagen
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Leasen
+Dienstleistung <|-- Ausliefern
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Lieferant
+Rolle <|-- Transporteur 
+@enduml
+In einem Automobilunternehmen werden verschiedenste Fahrzeugmodelle angeboten, darunter SUVs und Kompaktwagen. Ein Fahrzeug setzt sich aus Komponenten wie Motor, Räder und Karosserie zusammen. Die Karosserie kann entweder eine Limousine oder ein Cabrio sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, das Leasen und das Ausliefern von Fahrzeugen. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung können mehrere Buchungen erstellt werden, die jeweils eine eindeutige Buchungsnummer besitzen. Jede Person, ob Kunde, Lieferant oder Transporteur, besitzt einen Namen, ein Alter und eine Adresse. 
+
+Der Kunde kann Fahrzeuge nach Produktart suchen und filtern. Darüber hinaus kann der Kunde nach Fahrzeugen suchen, die bestimmte Komponenten oder Komponententypen enthalten. Der Kunde hat die Möglichkeit, Fahrzeuge zu kaufen oder zu leasen. Zusätzlich kann der Kunde die Option wählen, dass das Fahrzeug ausgeliefert wird. Dabei arbeitet das Unternehmen mit spezialisierten Lieferanten und Transporteuren zusammen, um die Auslieferung der Fahrzeuge effizient zu gestalten. Produkte und Personendaten müssen im System angelegt und verwaltet werden können.

@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- A_Sprüharm
+AbstrakteKomponente <|-- A_Filter
+AbstrakteKomponente <|-- A_Türdichtung
+A_Türdichtung<|-- A_Gummidichtung
+A_Türdichtung <|-- A_Magnetdichtung
+AbstraktesProdukt <|-- A_EinbauGeschirrspüler
+AbstraktesProdukt <|-- A_FreistehenderGeschirrspüler
+AbstraktesProdukt "1..*"--"*" A_Dienstleistung
+A_Rechnung "0..1"--"1" A_Dienstleistung
+A_Dienstleistung <|-- A_Reparatur
+A_Dienstleistung <|-- A_Wartung
+A_Dienstleistung <|-- A_Installation
+A_Dienstleistung "1" -- "*" A_Buchung
+A_Rolle "1" -- "*" A_Buchung
+A_Buchung : buchungsnummer
+A_Rolle "0..*" -- "1" A_Person
+A_Person : name
+A_Person : alter
+A_Person : adresse
+A_Rolle <|-- A_Kunde
+A_Rolle <|-- A_ReparaturTechniker
+A_Rolle <|-- A_Servicetechniker 
+@enduml
+In einem Haushaltsgerätefachgeschäft werden Geschirrspüler angeboten, darunter Einbau- und freistehende Geschirrspüler. Ein Geschirrspüler besteht aus Komponenten wie Sprüharm, Filter und Türdichtung. Die Türdichtung kann entweder eine Gummi- oder Magnetdichtung sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen Reparatur, Wartung und Installation von Geschirrspülern. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Reparaturtechniker oder Servicetechniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Geschirrspüler anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Geschirrspülern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, eine Reparatur, Wartung oder Installation für seinen Geschirrspüler zu buchen. Die Reparatur- und Servicetechniker kümmern sich um die Instandsetzung und Pflege der Geschirrspüler. Produkte und Personendaten müssen angelegt und verwaltet werden können.

@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Kühlschranktür
+AbstrakteKomponente <|-- Kühlraum
+AbstrakteKomponente <|-- Temperaturregelung
+Temperaturregelung<|-- MechanischeRegelung
+Temperaturregelung <|-- ElektronischeRegelung
+AbstraktesProdukt <|-- Standkühlschrank
+AbstraktesProdukt <|-- Side-by-Side-Kühlschrank
+AbstraktesProdukt "1..*"--"*" Wartung
+Rechnung "0..1"--"1" Wartung
+Wartung <|-- Kaufen
+Wartung <|-- Mieten
+Wartung <|-- Durchführen
+Wartung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Wartungstechniker
+Rolle <|-- Kühlschrankreparateur 
+@enduml
+In einem Fachgeschäft für Haushaltsgeräte werden verschiedene Kühlschränke angeboten, darunter Standkühlschränke und Side-by-Side-Kühlschränke. Ein Kühlschrank besteht aus Komponenten wie Kühlschranktür, Kühlraum und Temperaturregelung. Die Temperaturregelung kann entweder eine mechanische oder elektronische Regelung sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Wartungsdienstleistungen umfassen den Kauf, die Miete und die Durchführung von Wartungsarbeiten an Kühlschränken. Zu einer Wartung gehört keine oder eine Rechnung. Für eine Wartung können mehrere Buchungen erstellt werden, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Wartungstechniker oder Kühlschrankreparateur, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Wartungen für Kühlschränke anhand der Produktart oder Komponentenart suchen und buchen. Dabei kann der Kunde zwischen dem Kauf einer Wartung, dem Mieten von Wartungsgeräten oder dem direkten Beauftragen eines Wartungstechnikers wählen. Der Wartungstechniker führt dann die erforderlichen Wartungsarbeiten an den Kühlschränken durch. Im Falle einer Reparatur kann ein spezialisierter Kühlschrankreparateur hinzugezogen werden. Produkte und Personendaten müssen angelegt und verwaltet werden können, um effiziente Wartungsprozesse zu gewährleisten.

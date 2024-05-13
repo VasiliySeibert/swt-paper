@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Kühlschranktür
+AbstrakteKomponente <|-- Kühlraum
+AbstrakteKomponente <|-- Temperaturregelung
+Temperaturregelung<|-- MechanischeRegelung
+Temperaturregelung <|-- ElektronischeRegelung
+AbstraktesProdukt <|-- Standkühlschrank
+AbstraktesProdukt <|-- Side-by-Side-Kühlschrank
+AbstraktesProdukt "1..*"--"*" Finanzierung
+Rechnung "0..1"--"1" Finanzierung
+Finanzierung <|-- Kaufen
+Finanzierung <|-- Leasing
+Finanzierung <|-- Kredit
+Finanzierung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Finanzberater
+Rolle <|-- Kreditvermittler 
+@enduml
+In einem Elektronikgeschäft werden verschiedene Kühlschränke angeboten, darunter Standkühlschränke und Side-by-Side-Kühlschränke. Ein Kühlschrank besteht aus Komponenten wie Kühlschranktür, Kühlraum und Temperaturregelung. Die Temperaturregelung kann entweder mechanisch oder elektronisch sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Finanzierungsmöglichkeiten umfassen den Kauf, das Leasing und die Kreditfinanzierung von Kühlschränken. Zu einer Finanzierung gehört keine oder eine Rechnung. Für eine Finanzierung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Finanzberater oder Kreditvermittler, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Kühlschränke anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Kühlschränken suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, den Kühlschrank zu kaufen, zu leasen oder über Kredit zu finanzieren. Dabei kann sich der Kunde von einem Finanzberater beraten lassen, um die beste Finanzierungsoption für seine Bedürfnisse zu finden. Für die Kreditfinanzierung eines Kühlschranks kann der Kunde sich an einen spezialisierten Kreditvermittler wenden, um die besten Konditionen zu erhalten. Produkte und Personendaten müssen angelegt und verwaltet werden können.

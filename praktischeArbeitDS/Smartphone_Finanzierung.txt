@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Display
+AbstrakteKomponente <|-- Akku
+AbstrakteKomponente <|-- Prozessor
+Prozessor<|-- OctaCore
+Prozessor <|-- QuadCore
+AbstraktesProdukt <|-- Smartphone
+AbstraktesProdukt <|-- Tablet
+AbstraktesProdukt "1..*"--"*" Finanzierung
+Rechnung "0..1"--"1" Finanzierung
+Finanzierung <|-- Kaufen
+Finanzierung <|-- Leasen
+Finanzierung <|-- Finanzberatung
+Finanzierung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Finanzberater
+Rolle <|-- Finanzmanager
+@enduml
+In einem Elektronikfachgeschäft werden verschiedene Geräte angeboten, darunter Smartphones und Tablets. Ein Gerät besteht aus Komponenten wie Display, Akku und Prozessor. Der Prozessor kann entweder ein OctaCore oder QuadCore sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Finanzierungsmöglichkeiten umfassen den Kauf, das Leasing und die Finanzberatung von Geräten. Zu einer Finanzierung gehört keine oder eine Rechnung. Für eine Finanzierung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Finanzberater oder Finanzmanager, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Geräte anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Geräten suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Geräte zu kaufen oder zu leasen. Bei Bedarf kann sich der Kunde von einem Finanzberater beraten lassen, um die optimale Finanzierungsmöglichkeit für sein Gerät zu finden. Der Finanzmanager kann dabei helfen, die Finanzierung zu organisieren und abzuwickeln. Produkte und Personendaten müssen angelegt und verwaltet werden können.

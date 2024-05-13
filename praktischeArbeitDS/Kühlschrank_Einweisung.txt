@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Kühlschranktür
+AbstrakteKomponente <|-- Kühlraum
+AbstrakteKomponente <|-- Temperaturregelung
+Temperaturregelung<|-- MechanischeRegelung
+Temperaturregelung <|-- ElektronischeRegelung
+AbstraktesProdukt <|-- Standkühlschrank
+AbstraktesProdukt <|-- Side-by-Side-Kühlschrank
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Einweisen
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Einweisender
+Rolle <|-- Kühlschrankeinweiser
+@enduml
+In einem Elektrofachgeschäft werden verschiedene Kühlschränke angeboten, darunter Standkühlschränke und Side-by-Side-Kühlschränke. Ein Kühlschrank besteht aus Komponenten wie der Kühlschranktür, dem Kühlraum und der Temperaturregelung. Die Temperaturregelung kann entweder eine mechanische oder eine elektronische Regelung sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und das Einweisen in die Bedienung der Kühlschränke. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Einweisender oder Kühlschrankeinweiser, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Kühlschränke anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Kühlschränken suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Kühlschränke zu kaufen oder zu mieten. Bei Bedarf kann der Kunde auch eine Einweisung in die Bedienung seines Kühlschranks erhalten, bei der ein speziell geschulter Einweisender oder Kühlschrankeinweiser unterstützt. Produkte und Personendaten müssen angelegt und verwaltet werden können.

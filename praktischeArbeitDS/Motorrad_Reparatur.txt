@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Bremse
+Bremse<|-- Scheibenbremse
+Bremse <|-- Trommelbremse
+AbstraktesProdukt <|-- Cruiser
+AbstraktesProdukt <|-- Sportmotorrad
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Reparieren
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Mechaniker
+Rolle <|-- Techniker 
+@enduml
+In einer Motorradwerkstatt werden verschiedene Motorradmodelle angeboten, darunter Cruiser und Sportmotorräder. Ein Motorrad besteht aus Komponenten wie Motor, Reifen und Bremse. Die Bremse kann entweder eine Scheibenbremse oder eine Trommelbremse sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und die Reparatur von Motorrädern. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Mechaniker oder Techniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Motorräder anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Motorrädern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Motorräder zu kaufen oder zu mieten. Für die gekauften Motorräder kann der Kunde Reparaturen beauftragen. In der Werkstatt stehen spezialisierte Mechaniker und Techniker bereit, um die Instandsetzung der Motorräder durchzuführen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

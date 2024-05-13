@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Trommel
+AbstrakteKomponente <|-- Bedienfeld
+Bedienfeld<|-- Tastenfeld
+Bedienfeld <|-- Display
+AbstraktesProdukt <|-- Frontlader
+AbstraktesProdukt <|-- Toplader
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Finanzieren
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Finanzierungsberater
+Rolle <|-- Finanzierungsmanager 
+@enduml
+In einem Haushaltsgerätegeschäft werden verschiedene Waschmaschinenmodelle angeboten, darunter Frontlader und Toplader. Eine Waschmaschine besteht aus Komponenten wie Motor, Trommel und Bedienfeld. Das Bedienfeld kann entweder ein Tastenfeld oder ein Display sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die angebotenen Dienstleistungen umfassen den Kauf, die Miete und die Finanzierung von Waschmaschinen. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Finanzierungsberater oder Finanzierungsmanager, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Waschmaschinen anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Waschmaschinen suchen, die bestimmte Komponenten oder Komponententypen enthalten. Der Kunde hat dann die Möglichkeit, eine Waschmaschine zu kaufen oder zu mieten. Alternativ kann der Kunde eine Waschmaschine auch über eine Finanzierung erwerben. Dabei stehen spezialisierte Finanzierungsberater und Finanzierungsmanager zur Verfügung, um den Kunden bei der Auswahl und Abwicklung der Finanzierung zu unterstützen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

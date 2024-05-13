@@ -1,0 +1,37 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Display
+AbstrakteKomponente <|-- Akku
+AbstrakteKomponente <|-- Prozessor
+Prozessor<|-- OctaCore
+Prozessor <|-- QuadCore
+AbstraktesProdukt <|-- Smartphone
+AbstraktesProdukt <|-- Tablet
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Reparieren
+Dienstleistung <|-- Einweisen
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Einweiser
+Rolle <|-- Techniker
+@enduml
+In einem Elektronikgeschäft werden verschiedene mobile Geräte angeboten, darunter Smartphones und Tablets. Jedes Gerät besteht aus Komponenten wie einem Display, einem Akku und einem Prozessor. Der Prozessor kann entweder ein OctaCore oder ein QuadCore Prozessor sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die angebotenen Dienstleistungen umfassen den Kauf, die Reparatur und die Einweisung in die Bedienung der mobilen Geräte. Jede Dienstleistung kann keine oder eine Rechnung enthalten. Für eine Dienstleistung können mehrere Buchungen erstellt werden, wobei jede Buchung eine eindeutige Buchungsnummer aufweist. 
+
+Die verschiedenen Rollen umfassen den Kunden, der das mobile Gerät erwirbt, den Einweiser, der die Bedienung des Geräts erklärt, und den Techniker, der Reparaturen an den Geräten durchführt. Jede Person, egal ob Kunde, Einweiser oder Techniker, besitzt einen Namen, ein Alter und eine Adresse. 
+
+Der Kunde hat die Möglichkeit, nach Geräten basierend auf der Produktart zu suchen und sie zu kaufen. Bei Problemen oder Defekten kann der Kunde das Gerät zur Reparatur bringen, die dann von einem Techniker durchgeführt wird. Nach dem Kauf kann der Kunde eine Einweisung in die Bedienung des Geräts erhalten. Die verschiedenen Rollen ermöglichen eine klare Zuweisung von Aufgaben und Verantwortlichkeiten im Zusammenhang mit dem Verkauf, der Reparatur und der Bedienung der mobilen Geräte.

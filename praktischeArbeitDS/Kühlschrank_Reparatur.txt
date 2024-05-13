@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Kühlschranktür
+AbstrakteKomponente <|-- Kühlraum
+AbstrakteKomponente <|-- Temperaturregelung
+Temperaturregelung<|-- MechanischeRegelung
+Temperaturregelung <|-- ElektronischeRegelung
+AbstraktesProdukt <|-- Standkühlschrank
+AbstraktesProdukt <|-- Side-by-Side-Kühlschrank
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Reparieren
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Reparateur
+Rolle <|-- Kühlschrankreparateur 
+@enduml
+In einem Elektrofachgeschäft werden verschiedene Kühlschränke angeboten, darunter Standkühlschränke und Side-by-Side-Kühlschränke. Ein Kühlschrank besteht aus Komponenten wie Kühlschranktür, Kühlraum und Temperaturregelung. Die Temperaturregelung kann entweder mechanisch oder elektronisch sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und die Reparatur von Kühlschränken. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Reparateur oder spezialisierter Kühlschrankreparateur, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Kühlschränke anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Kühlschränken suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Kühlschränke zu kaufen oder zu mieten. Im Falle eines Defekts kann der Kunde eine Reparatur beauftragen. Dabei kann sich der Kunde von einem allgemeinen Reparateur oder einem spezialisierten Kühlschrankreparateur helfen lassen, um den Kühlschrank wieder voll funktionsfähig zu machen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Display
+AbstrakteKomponente <|-- Akku
+AbstrakteKomponente <|-- Prozessor
+Prozessor<|-- OctaCore
+Prozessor <|-- QuadCore
+AbstraktesProdukt <|-- Smartphone
+AbstraktesProdukt <|-- Tablet
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Reparieren
+Dienstleistung <|-- Upgraden
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Techniker
+Rolle <|-- ReparaturExperte
+@enduml
+In einem Elektronikladen werden verschiedene Geräte wie Smartphones und Tablets angeboten. Ein Gerät besteht aus Komponenten wie Display, Akku und Prozessor. Der Prozessor kann entweder ein OctaCore- oder QuadCore-Prozessor sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Reparatur und das Upgraden von Geräten. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Techniker oder Reparaturexperte, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Geräte anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Geräten suchen, die eine bestimmte Komponente oder Komponentenart enthalten. Der Kunde hat dann die Möglichkeit, Geräte zu kaufen, reparieren zu lassen oder aufzurüsten. Für Reparaturen und Upgrades stehen spezialisierte Techniker und Reparaturexperten zur Verfügung, die sich um die Instandsetzung und Verbesserung der Geräte kümmern. Produkte und Personendaten müssen angelegt und verwaltet werden können. Die Dienstleistungen sollen klar definiert und nachvollziehbar sein, um eine reibungslose Abwicklung zu gewährleisten.

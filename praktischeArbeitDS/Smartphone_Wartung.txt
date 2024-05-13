@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Display
+AbstrakteKomponente <|-- Akku
+AbstrakteKomponente <|-- Prozessor
+Prozessor<|-- OctaCore
+Prozessor <|-- QuadCore
+AbstraktesProdukt <|-- Smartphone
+AbstraktesProdukt <|-- Tablet
+AbstraktesProdukt "1..*"--"*" Wartung
+Rechnung "0..1"--"1" Wartung
+Wartung <|-- Beheben
+Wartung <|-- Reinigen
+Wartung <|-- Upgraden
+Wartung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Techniker
+Rolle <|-- Supportmitarbeiter
+@enduml
+In einem Elektronikgeschäft werden verschiedene Geräte angeboten, darunter Smartphones und Tablets. Ein Gerät besteht aus Komponenten wie Display, Akku und Prozessor. Der Prozessor kann entweder ein OctaCore oder QuadCore sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Wartung umfasst das Beheben von Problemen, Reinigung und Upgrades der Geräte. Zu einer Wartung gehört keine oder eine Rechnung. Für eine Wartung können mehrere Buchungen angelegt werden, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Techniker oder Supportmitarbeiter, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Geräte anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Geräten suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, eine Wartung für sein Gerät durchführen zu lassen. Die Wartungsarbeiten können von speziell ausgebildeten Technikern durchgeführt werden, die sich um die Instandhaltung und Reparaturen der Geräte kümmern. Supportmitarbeiter stehen zur Verfügung, um Kunden bei technischen Problemen oder Fragen zu unterstützen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

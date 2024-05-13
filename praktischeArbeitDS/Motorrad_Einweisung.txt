@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Bremse
+Bremse<|-- Scheibenbremse
+Bremse <|-- Trommelbremse
+AbstraktesProdukt <|-- Cruiser
+AbstraktesProdukt <|-- Sportmotorrad
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Einweisen
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Einweiser
+Rolle <|-- Mechaniker 
+@enduml
+In einem Motorradgeschäft werden verschiedene Motorradmodelle angeboten, darunter Cruiser und Sportmotorräder. Ein Motorrad besteht aus Komponenten wie Motor, Reifen und Bremse. Die Bremse kann entweder eine Scheibenbremse oder eine Trommelbremse sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und das Einweisen in die Bedienung von Motorrädern. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Einweiser oder Mechaniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Motorräder anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Motorrädern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Nach dem Kauf eines Motorrades kann der Kunde eine Einweisung in die Bedienung des neuen Fahrzeugs erhalten, um sich mit den Besonderheiten vertraut zu machen. Für Reparaturen und Wartungsarbeiten stehen spezialisierte Mechaniker zur Verfügung, die sich um die Instandhaltung der Motorräder kümmern. Produkte und Personendaten müssen angelegt und verwaltet werden können.

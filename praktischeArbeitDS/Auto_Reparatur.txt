@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Räder
+AbstrakteKomponente <|-- Karosserie
+Karosserie <|-- Limousine
+Karosserie <|-- Cabrio
+AbstraktesProdukt <|-- SUV
+AbstraktesProdukt <|-- Kompaktwagen
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Leasen
+Dienstleistung <|-- Reparatur
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Automechaniker
+Rolle <|-- Werkstattbesitzer 
+@enduml
+In einem Autohaus werden verschiedene Automodelle angeboten, darunter SUVs und Kompaktwagen. Ein Auto besteht aus Komponenten wie Motor, Rädern und Karosserie. Die Karosserie kann entweder eine Limousine oder ein Cabrio sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, das Leasen und die Reparatur von Autos. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Automechaniker oder Werkstattbesitzer, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Autos anhand der Produktart suchen und sortieren. Des Weiteren kann der Kunde nach Autos suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Autos zu kaufen oder zu leasen. Für Reparaturen am Auto kann der Kunde die Dienstleistung der Reparatur in Anspruch nehmen. Diese wird von spezialisierten Automechanikern durchgeführt, die sich um die Instandsetzung und Wartung der Autos kümmern. Außerdem können Werkstattbesitzer Dienstleistungen in Form von Reparaturen anbieten. Produkte und Personendaten müssen angelegt und verwaltet werden können.

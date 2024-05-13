@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Räder
+AbstrakteKomponente <|-- Karosserie
+Karosserie <|-- Limousine
+Karosserie <|-- Cabrio
+AbstraktesProdukt <|-- SUV
+AbstraktesProdukt <|-- Kompaktwagen
+AbstraktesProdukt "1..*"--"*" Finanzierung
+Rechnung "0..1"--"1" Finanzierung
+Finanzierung <|-- Kaufen
+Finanzierung <|-- Leasen
+Finanzierung <|-- Finanzierungsoptionen
+Finanzierung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kundenberater
+Rolle <|-- Finanzberater
+Rolle <|-- Automechaniker 
+@enduml
+In einem Autohaus werden verschiedene Autotypen angeboten, darunter SUVs und Kompaktwagen. Ein Auto besteht aus Komponenten wie Motor, Räder und Karosserie. Die Karosserie kann entweder eine Limousine oder ein Cabrio sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Finanzierungsoptionen umfassen den Kauf, das Leasing und verschiedene Finanzierungsangebote für Autos. Zu einer Finanzierung gehört keine oder eine Rechnung. Für eine Finanzierung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kundenberater, Finanzberater oder Automechaniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Autos anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Autos suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, das Auto zu kaufen, zu leasen oder verschiedene Finanzierungsoptionen in Anspruch zu nehmen. Dabei kann er sich von einem spezialisierten Finanzberater beraten lassen, um die bestmögliche Finanzierungsvariante zu wählen. Auch der Automechaniker steht zur Verfügung, um Reparaturen und Wartungsarbeiten an den Autos durchzuführen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

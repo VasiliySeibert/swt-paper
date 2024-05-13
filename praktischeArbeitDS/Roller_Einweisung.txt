@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Lenker
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Motor
+Motor<|-- Elektromotor
+Motor <|-- Verbrennungsmotor
+AbstraktesProdukt <|-- Elektroroller
+AbstraktesProdukt <|-- Motorroller
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Leasen
+Dienstleistung <|-- Einweisen
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Einweiser
+Rolle <|-- Rollermechaniker 
+@enduml
+In einem Rollerladen werden verschiedene Rollermodelle angeboten, darunter Elektroroller und Motorroller. Ein Roller besteht aus Komponenten wie Lenker, Reifen und Motor. Der Motor kann entweder ein Elektromotor oder ein Verbrennungsmotor sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, das Leasen und das Einweisen in die Bedienung der Roller. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Einweiser oder Rollermechaniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Roller anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Rollern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Nach dem Kauf oder Leasing eines Rollers kann der Kunde eine Einweisung in die Bedienung und Wartung des Rollers erhalten, durchgeführt von einem spezialisierten Einweiser. Für Reparaturen und Wartungen stehen Rollermechaniker zur Verfügung, die sich um die Instandhaltung der Roller kümmern. Produkte und Personendaten müssen angelegt und verwaltet werden können.

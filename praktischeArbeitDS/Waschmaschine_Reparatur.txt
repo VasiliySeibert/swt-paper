@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Trommel
+AbstrakteKomponente <|-- Bedienfeld
+Bedienfeld<|-- Tastenfeld
+Bedienfeld <|-- Display
+AbstraktesProdukt <|-- Frontlader
+AbstraktesProdukt <|-- Toplader
+AbstraktesProdukt "1..*"--"*" Dienstleistung
+Rechnung "0..1"--"1" Dienstleistung
+Dienstleistung <|-- Kaufen
+Dienstleistung <|-- Mieten
+Dienstleistung <|-- Reparieren
+Dienstleistung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Reparateur
+Rolle <|-- Waschmaschinenreparateur 
+@enduml
+In einem Haushaltsgerätegeschäft werden verschiedene Waschmaschinenmodelle angeboten, darunter Frontlader und Toplader. Eine Waschmaschine besteht aus Komponenten wie Motor, Trommel und Bedienfeld. Das Bedienfeld kann entweder ein Tastenfeld oder ein Display sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Dienstleistungen umfassen den Kauf, die Miete und die Reparatur von Waschmaschinen. Zu einer Dienstleistung gehört keine oder eine Rechnung. Für eine Dienstleistung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Reparateur oder Waschmaschinenreparateur, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Waschmaschinen anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Waschmaschinen suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, Waschmaschinen zu kaufen oder zu mieten. Im Falle einer Reparatur kann der Kunde einen Reparateur beauftragen, der sich um die Instandsetzung der Waschmaschine kümmert. Speziell ausgebildete Waschmaschinenreparateure stehen zur Verfügung, um Reparaturen an den Geräten durchzuführen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

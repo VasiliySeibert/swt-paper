@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Lenker
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Motor
+Motor<|-- Elektromotor
+Motor <|-- Verbrennungsmotor
+AbstraktesProdukt <|-- Elektroroller
+AbstraktesProdukt <|-- Motorroller
+AbstraktesProdukt "1..*"--"*" Wartung
+Rechnung "0..1"--"1" Wartung
+Wartung <|-- Durchführen
+Wartung <|-- Planen
+Wartung <|-- Überwachen
+Wartung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Wartungstechniker
+Rolle <|-- Rollermechaniker 
+@enduml
+In einer Rollerwerkstatt werden verschiedene Rollermodelle angeboten, darunter Elektroroller und Motorroller. Ein Roller besteht aus Komponenten wie Lenker, Reifen und Motor. Der Motor kann entweder ein Elektromotor oder ein Verbrennungsmotor sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Wartungsarbeiten umfassen das Durchführen, Planen und Überwachen von Wartungen an Rollern. Zu einer Wartung gehört keine oder eine Rechnung. Für eine Wartung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Wartungstechniker oder Rollermechaniker, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann einen Roller anhand der Produktart suchen und auswählen. Der Kunde hat dann die Möglichkeit, eine Wartung für seinen Roller zu planen und durchführen zu lassen. Dabei stehen spezialisierte Wartungstechniker und Rollermechaniker zur Verfügung, um die Instandhaltung des Rollers durchzuführen. Produkte und Personendaten müssen angelegt und verwaltet werden können.

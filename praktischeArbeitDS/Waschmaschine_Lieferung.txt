@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Trommel
+AbstrakteKomponente <|-- Bedienfeld
+Bedienfeld<|-- Tastenfeld
+Bedienfeld <|-- Display
+AbstraktesProdukt <|-- Frontlader
+AbstraktesProdukt <|-- Toplader
+AbstraktesProdukt "1..*"--"*" Lieferung
+Rechnung "0..1"--"1" Lieferung
+Lieferung <|-- Bestellung
+Lieferung <|-- Versand
+Lieferung <|-- Liefern
+Lieferung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Lieferant
+Rolle <|-- Logistikmitarbeiter 
+@enduml
+In einem Elektrofachmarkt werden verschiedene Haushaltsgeräte angeboten, darunter Frontlader und Toplader Waschmaschinen. Ein Haushaltsgerät besteht aus Komponenten wie Motor, Trommel und Bedienfeld. Das Bedienfeld kann entweder ein Tastenfeld oder ein Display sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Lieferungen umfassen Bestellungen, Versand und das tatsächliche Liefern der Haushaltsgeräte. Zu einer Lieferung gehört keine oder eine Rechnung. Für eine Lieferung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Lieferant oder Logistikmitarbeiter, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann nach Haushaltsgeräten anhand der Produktart suchen und sortieren. Dabei kann der Kunde auch nach Geräten suchen, die bestimmte Komponenten oder Komponententypen enthalten. Der Kunde hat dann die Möglichkeit, Haushaltsgeräte zu bestellen, die geliefert werden. Die Lieferanten sind für den Versand und die tatsächliche Lieferung der bestellten Geräte zuständig. Die Logistikmitarbeiter unterstützen bei der Koordination und Organisation der Lieferungen. Produkte und Personendaten müssen angelegt und verwaltet werden können, um einen reibungslosen Ablauf des Bestell- und Lieferprozesses sicherzustellen.

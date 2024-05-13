@@ -1,0 +1,35 @@
+@startuml
+AbstraktesProdukt "1" o-- "*" AbstrakteKomponente
+AbstrakteKomponente "0..*"--"1" Komponentenart
+Komponentenart : beschreibung
+Komponentenart : komponentenNummer
+Produktart : beschreibung
+Produktart : komponentenNummer
+Produktart "*"--"*" Komponentenart
+Produktart "1" -- "0..*" AbstraktesProdukt
+AbstrakteKomponente <|-- Motor
+AbstrakteKomponente <|-- Reifen
+AbstrakteKomponente <|-- Bremse
+Bremse<|-- Scheibenbremse
+Bremse <|-- Trommelbremse
+AbstraktesProdukt <|-- Cruiser
+AbstraktesProdukt <|-- Sportmotorrad
+AbstraktesProdukt "1..*"--"*" Finanzierung
+Rechnung "0..1"--"1" Finanzierung
+Finanzierung <|-- Kauf
+Finanzierung <|-- Leasing
+Finanzierung <|-- Finanzierungsoptionen
+Finanzierung "1" -- "*" Buchung
+Rolle "1" -- "*" Buchung
+Buchung : buchungsnummer
+Rolle "0..*" -- "1" Person
+Person : name
+Person : alter
+Person : adresse
+Rolle <|-- Kunde
+Rolle <|-- Finanzberater
+Rolle <|-- Buchhalter 
+@enduml
+In einem Motorradgeschäft werden verschiedene Motorradmodelle angeboten, darunter Cruiser und Sportmotorräder. Ein Motorrad besteht aus Komponenten wie Motor, Reifen und Bremse. Die Bremse kann entweder eine Scheibenbremse oder Trommelbremse sein. Komponentenart sowie Produktart sind durch eine eindeutige Nummer und eine Beschreibung gekennzeichnet. Die Finanzierungsoptionen umfassen den Kauf, das Leasing und verschiedene Arten von Finanzierungsmöglichkeiten für Motorräder. Zu einer Finanzierung gehört keine oder eine Rechnung. Für eine Finanzierung kann es mehrere Buchungen geben, die jeweils eine eindeutige Buchungsnummer haben. Jede Person, ob Kunde, Finanzberater oder Buchhalter, besitzt einen Namen, ein Alter und eine Adresse.
+
+Der Kunde kann Motorräder anhand der Produktart suchen und sortieren. Der Kunde kann auch nach Motorrädern suchen, die eine bestimmte Komponente oder Komponententyp enthalten. Der Kunde hat dann die Möglichkeit, ein Motorrad zu kaufen oder zu leasen. Bei Bedarf kann der Kunde sich von einem spezialisierten Finanzberater über die verschiedenen Finanzierungsoptionen beraten lassen. Für die Abwicklung der Finanzierungen ist ein Buchhalter zuständig, der die Buchungen und Rechnungen koordiniert. Produkte und Personendaten müssen angelegt und verwaltet werden können.
